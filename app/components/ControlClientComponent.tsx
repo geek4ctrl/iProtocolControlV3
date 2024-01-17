@@ -37,9 +37,7 @@ export default function ControlClientComponent() {
     return (
 
         <div style={{ display: "contents" }}>
-            <h1 style={{ display: "flex", fontSize: "2rem" }}>Control</h1>
-
-            <h3 style={{ display: "flex", fontSize: "2rem" }}>{t("test")}</h3>
+            <h1 style={{ display: "flex", fontSize: "2rem" }}>{t('controlKey')}</h1>
 
             {/* <h1>{t('header', { name: userName })}</h1> */}
 
@@ -53,13 +51,13 @@ export default function ControlClientComponent() {
                             </div>
                             <div className="pt-3 ml-4 mr-2 mb-3" style={{ textAlign: "left" }}>
                                 <h3 className="text-xl text-gray-900">
-                                    User Id: <p className="text-gray-400 text-sm mt-1">{userId}</p>
+                                    {t("userIdKey")}: <p className="text-gray-400 text-sm mt-1">{userId}</p>
                                 </h3>
                                 <h3 className="text-xl text-gray-900">
-                                    Reservation Type: <p className="text-gray-400 text-sm mt-1">{reservationType}</p>
+                                    {t("reservationTypeKey")}: <p className="text-gray-400 text-sm mt-1">{reservationType}</p>
                                 </h3>
                                 <h3 className="text-xl text-gray-900">
-                                    Invitation Status: <p className="text-gray-400 text-sm mt-1">{invitationStatus}</p>
+                                    {t("invitationStatusKey")}: <p className="text-gray-400 text-sm mt-1">{invitationStatus}</p>
                                 </h3>
                             </div>
                         </button>
@@ -70,13 +68,13 @@ export default function ControlClientComponent() {
                             </div>
                             <div className="pt-3 ml-4 mr-2 mb-3" style={{ textAlign: "left" }}>
                                 <h3 className="text-xl text-gray-900" style={{ display: "flex" }}>
-                                    User Id: <p className="text-gray-400 text-sm mt-1">{userId ? (<span style={{ marginLeft: "1rem" }}>{userId}</span>) : (<span style={{ display: "flex", marginLeft: "1rem" }}>Undefined</span>)}</p>
+                                    {t("userIdKey")}: <p className="text-gray-400 text-sm mt-1">{userId ? (<span style={{ marginLeft: "1rem" }}>{userId}</span>) : (<span style={{ display: "flex", marginLeft: "1rem" }}>Undefined</span>)}</p>
                                 </h3>
                                 <h3 className="text-xl text-gray-900" style={{ display: "flex" }}>
-                                    Reservation Type: <p className="text-gray-400 text-sm mt-1">{reservationType ? (<span style={{ marginLeft: "1rem" }}>{reservationType}</span>) : (<span style={{ display: "flex", marginLeft: "1rem" }}>Undefined</span>)}</p>
+                                    {t("reservationTypeKey")}: <p className="text-gray-400 text-sm mt-1">{reservationType ? (<span style={{ marginLeft: "1rem" }}>{reservationType}</span>) : (<span style={{ display: "flex", marginLeft: "1rem" }}>Undefined</span>)}</p>
                                 </h3>
                                 <h3 className="text-xl text-gray-900" style={{ display: "flex" }}>
-                                    Invitation Status: <p className="text-gray-400 text-sm mt-1">{invitationStatus ? (<span style={{ marginLeft: "1rem" }}>{invitationStatus}</span>) : (<span style={{ display: "flex", marginLeft: "1rem" }}>Undefined</span>)}</p>
+                                    {t("invitationStatusKey")}: <p className="text-gray-400 text-sm mt-1">{invitationStatus ? (<span style={{ marginLeft: "1rem" }}>{invitationStatus}</span>) : (<span style={{ display: "flex", marginLeft: "1rem" }}>Undefined</span>)}</p>
                                 </h3>
                             </div>
                         </button>

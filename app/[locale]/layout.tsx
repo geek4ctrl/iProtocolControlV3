@@ -17,7 +17,7 @@ export const metadata = {
 type Props = {
   children: React.ReactNode;
   params: {
-    locale: "en" | "es"
+    locale: "en" | "fr" | "it"
   }
 }
 
