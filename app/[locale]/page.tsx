@@ -9,9 +9,9 @@ import ControlClientComponent from '@/app/components/ControlClientComponent'
 import NavigationBar from '@/app/components/NavigationBar'
 
 const navigation = [
-  { title: "Francais", path: "javascript:void(0)" },
-  { title: "English", path: "javascript:void(0)" },
-  { title: "Italien", path: "javascript:void(0)" },
+  { title: "Francais", path: "javascript:void(0)", locale: "fr" },
+  { title: "English", path: "javascript:void(0)", locale: "en" },
+  { title: "Italien", path: "javascript:void(0)", locale: "it" },
 ];
 
 export default async function Index() {
