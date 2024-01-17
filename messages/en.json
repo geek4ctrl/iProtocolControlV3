@@ -1,3 +1,6 @@
 {
-  "test": "English"
+  "controlKey": "Control",
+  "userIdKey": "User Id",
+  "reservationTypeKey": "Reservation Type",
+  "invitationStatusKey": "Invitation Status"
 }

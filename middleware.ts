@@ -4,7 +4,7 @@ import { createClient } from '@/utils/supabase/middleware'
 import createMiddleware from "next-intl/middleware"
 
 const nextIntlMiddleware = createMiddleware({
-  locales: ["en", "es"],
+  locales: ["en", "fr", "it"],
   defaultLocale: "en"
 })
 
@@ -44,5 +44,5 @@ export const config = {
   //    */
   //   '/((?!_next/static|_next/image|favicon.ico).*)',
   // ],
-  matcher: ["/", "/(es|en)/:path*"]
+  matcher: ["/", "/(en|fr|it)/:path*"]
 }

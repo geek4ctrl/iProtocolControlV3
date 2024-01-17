@@ -1,0 +1,6 @@
+{
+  "controlKey": "Contrôle",
+  "userIdKey": "ID de l'utilisateur",
+  "reservationTypeKey": "Type de réservation",
+  "invitationStatusKey": "Statut de l'invitation"
+}
