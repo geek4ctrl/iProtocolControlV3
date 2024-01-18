@@ -1,5 +1,10 @@
-import Link from "next/link"
+"use client"
+
 import NavigationBarLanguagesClientComponent from "./NavigationBarLanguagesClientComponent"
+
+import { ThemeSwitcherProvider } from "react-css-theme-switcher";
+import { Sun, Moon } from "react-feather";
+import { useEffect, useState } from "react";
 
 interface NavigationItem {
     // Define the structure of a navigation item as needed
@@ -18,8 +23,41 @@ interface NavigationBarProps {
 
 export default function NavigationBar({ navigation, user }: { navigation: any, user: any }) {
 
+    // Keeps the state of the theme
+    const [themeState, setThemeState] = useState("light");
+
+    // light/dark themes related styles css files
+    const themes = {
+        dark: `dark-theme.css`,
+        light: `light-theme.css`,
+    };
+
+    /**
+     * Gets the theme state on initial load
+     * stored in localStorage or if not, set default theme as light theme
+     */
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const currentTheme = localStorage.getItem("theme") || "light"; // get the user theme state from localStorage
+            setThemeState(currentTheme);
+        }
+    }, []);
+
+    /**
+     * Toggles the theme and keep it in localStorage
+     */
+    const toggleTheme = () => {
+        if (themeState === "dark") {
+            localStorage.setItem("theme", "light");
+            setThemeState("light");
+        } else {
+            localStorage.setItem("theme", "dark");
+            setThemeState("dark");
+        }
+    };
+
     return (
-        <nav className="bg-white border-b w-full md:static md:text-sm md:border-none">
+        <nav className="bg-white border-b w-full md:static md:text-sm md:border-none" >
             <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
                 <div className="flex items-center justify-between py-3 md:py-5 md:block">
                     <a href="/">
@@ -47,6 +85,29 @@ export default function NavigationBar({ navigation, user }: { navigation: any, u
                 </div>
                 <div className={`flex-1 pb-3 mt-8 md:block md:pb-0 md:mt-0 ${'block'}`}>
                     <ul className="justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0">
+
+                        <ThemeSwitcherProvider themeMap={themes} defaultTheme={themeState}>
+                            <div className="">
+                                {themeState === "light" && (
+                                    <Sun
+                                        size={20}
+                                        color="black"
+                                        style={{ cursor: "pointer" }}
+                                        onClick={toggleTheme}
+                                    />
+                                )}
+
+                                {themeState === "dark" && (
+                                    <Moon
+                                        size={20}
+                                        color="white"
+                                        style={{ cursor: "pointer" }}
+                                        onClick={toggleTheme}
+                                    />
+                                )}
+                            </div>
+                        </ThemeSwitcherProvider>
+
                         {
                             navigation.map((item: any, idx: any) => {
                                 return (
@@ -54,27 +115,6 @@ export default function NavigationBar({ navigation, user }: { navigation: any, u
                                 )
                             })
                         }
-                        {/* <span className='hidden w-px h-6 bg-gray-300 md:block'></span>
-                        <div className='space-y-3 items-center gap-x-6 md:flex md:space-y-0'>
-
-                            {user ? (
-                                <div className="flex items-center gap-4">
-                                    Hey, {user.email}!
-                                    <LogoutButton />
-                                </div>
-                            ) : (
-                                <div className="flex items-center gap-4">
-                                    <Link href="/login" className="block py-3 text-center text-gray-700 hover:text-indigo-600 border rounded-lg md:border-none">
-                                        Log in
-                                    </Link>
-
-                                    <Link href="/login" className="block py-3 px-4 font-medium text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow md:inline">
-                                        Sign in
-                                    </Link>
-                                </div>
-                            )}
-
-                        </div> */}
                     </ul>
                 </div>
             </div>
