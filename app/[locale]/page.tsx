@@ -15,6 +15,7 @@ const navigation = [
 ];
 
 export default async function Index() {
+
   const cookieStore = cookies()
   const supabase = createClient(cookieStore);
 
@@ -25,7 +26,7 @@ export default async function Index() {
 
   return (
     <>
-      <div className="w-full flex flex-col items-center">
+      <div className="w-full flex flex-col items-center h-screen">
         <NavigationBar navigation={navigation} user={user} />
 
         <ControlClientComponent />
